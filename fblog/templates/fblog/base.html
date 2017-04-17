@@ -1,0 +1,59 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head style="background-color:white">
+    <meta charset="UTF-8">
+    <title>First Blog</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/js/jquery-3.1.1.min.js' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/js/bootstrap.min.js' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/dcalendar.picker.css' %}" rel="stylesheet"/>
+
+</head>
+<body class="container" style="background: url('{% static 'images/wns.jpg' %}') no-repeat center center fixed; background-size:cover;">
+<h1>THE ONE</h1>
+<a href="{% url 'index' %}" title="第一个博客" ></a>
+{% include 'fblog\nav.html' %}
+
+
+
+<div id='content' class='row'>
+  <div class='col-sm-8 blog-main'>
+    {% block content %}
+    <div>blog text</div>
+    {% endblock %}
+
+    {% block bottom %}
+   {% include 'fblog\bottom.html' %}
+    {% endblock %}
+  </div>
+
+  <div class='col-sm-3 col-sm-offset-1 blog-sidebar'>
+    {% include 'fblog\sidebar.html' %}
+
+  </div>
+</div>
+
+<div>
+
+</div>
+
+
+
+{% include 'fblog\others.html' %}
+
+<script src="{% static 'bootstrap/js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/dcalendar.picker.js' %}"></script>
+<script type="text/javascript">
+
+	$('#mycalendar').dcalendar();
+</script>
+</body>
+</html>

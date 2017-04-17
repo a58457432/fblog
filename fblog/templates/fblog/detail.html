@@ -1,0 +1,26 @@
+{% extends 'fblog\base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div id="bd" class="wrp clear-fix">
+                <font size="3" color="#ffb6c1">
+                <div id="main" class="col-sm-8 blog-main">
+                    <div id="post-1951"
+                         class="post-1951 post type-post status-publish format-standard hentry category-meida-report">
+                        <div class="post-hd">
+                            <h1 class="title">{{ blogtext.title }}</h1>
+                        </div>
+                        <div class="date-read">
+                            <i class="icon-date"></i>
+                            <span class="date">{{ blogtext.last_modified_time|date:"Y年n月d日" }}</span>
+                        </div>
+                        <div class="post-bd">
+                            {{ blogtext.body |safe }}
+                        </div>
+                    </div>
+                </div>
+                  </font>
+            </div>
+        </div>
+    </div>
+{% endblock %}

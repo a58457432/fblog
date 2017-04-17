@@ -1,0 +1,27 @@
+{% extends "fblog\base.html" %}
+
+  {% block content %}
+<font size="3" color="#ffb6c1">
+
+<ul >
+{% for blog in Blogs %}
+    <p> <a href="{% url 'detail' blog.pk %}">{{ blog.title }}</a></p>
+    <p>{{ blog.body }}</p>
+   <p>{{ blog.created_time }}</p>
+{% endfor %}
+</ul>
+</font>
+
+<ul>
+        {{ category_list }}
+</ul>
+
+<ul>
+        {{ date_archive }}
+</ul>
+
+<ul>
+        {{ tag_list }}
+</ul>
+
+  {% endblock %}
