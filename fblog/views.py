@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import qrcode
 from cStringIO import StringIO
 from django.shortcuts import render
-from .models import Article,Category,Tag
+from .models import Article,Category,Tag,Fk_Category
 from django.shortcuts import render_to_response
 from django.views.generic import ListView, DetailView
 import markdown2
@@ -50,8 +50,9 @@ class ArticleDetailView(DetailView):
         return obj
 
 class CategoryView(ListView):
-    template_name = "fblog/index.html"
-    context_object_name = "article_list"
+    model = Category
+    template_name = "fblog/nav.html"
+    context_object_name = "Cate"
 
     def get_queryset(self):
         article_list = Article.objects.filter(category=self.kwargs['cate_id'], status='p')
@@ -63,7 +64,19 @@ class CategoryView(ListView):
         kwargs['category_list'] = Category.objects.all().order_by('name')
         return super(CategoryView, self).get_context_data(**kwargs)
 
+class Fk_CategoryView(ListView):
+    model = Fk_Category
+    template_name = "fblog/testqd.html"
+    context_object_name = "fk_cate"
 
+    def get_queryset(self):
+        fk_cate = Fk_Category.objects.all()
+
+        return fk_cate
+
+    def get_context_data(self, **kwargs):
+        kwargs['fk_category_list'] = Fk_Category.objects.all().order_by('name')
+        return super(Fk_CategoryView, self).get_context_data(**kwargs)
 
 
 def test(request):

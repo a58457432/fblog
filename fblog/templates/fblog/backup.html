@@ -11,26 +11,35 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
-                {% for category in category_list %}
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                 {{ category.name }}
+                 DB
                 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-
-
                     <li><a href="#">mysql</a></li>
-
-
-                    {# 分割线 #}
-                    {# <li role="separator" class="divider"></li> #}
-
-
+                    <li><a href="#">postgresql</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">greenplum</a></li>
+                    <li><a href="#">tidb</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">others</a></li>
                 </ul>
                 </li>
-                {% endfor %}
 
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 安全
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">逆向工程</a></li>
+                    <li><a href="#">web安全</a></li>
+                    <li><a href="#">系统安全</a></li>
+                    <li><a href="#">病毒</a></li>
+                    <li><a href="#">蠕虫</a></li>
+                </ul>
+                </li>
 
                 <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">通用查询 <span class="caret"></span></a>

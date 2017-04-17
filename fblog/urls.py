@@ -10,7 +10,8 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^home$', views.blogindex.as_view(), name='index'),
     url(r'^blog/article/(?P<article_id>\d+)$', views.ArticleDetailView.as_view(), name='detail'),
- #   url(r'^category/(?P<cate_id>\d+)$', views.CategoryView.as_view(), name='category'),
+    url(r'^category/(?P<cate_id>\d+)$', views.CategoryView.as_view(), name='category'),
+    url(r'^category/(?P<fk_cate_id>\d+)$', views.Fk_CategoryView.as_view(), name='fk_category'),
     url(r'^test$', views.test, name='test'),
     url(r'^favicon.ico$',RedirectView.as_view(url=r'static/favicon.ico')),
     url(r'^qrcode/(.+)$', views.generate_qrcode, name='qrcode'),
